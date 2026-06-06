@@ -4,64 +4,55 @@ import { useState } from "react";
 
 const DAYS = [
   {
-    id: "A",
-    label: "Day A",
-    focus: "Lower Body + Pull",
-    color: "#e8673a",
+    id: "A", label: "Day A", focus: "Lower Body + Pull", color: "#e8673a",
     gym: [
-      { name: "Goblet Squat", sets: "3", reps: "10–12", weight: "25# KB → progress to 35#", cue: "Chest up, knees track over toes, full depth. Keep the KB close to your sternum.", category: "Legs" },
-      { name: "Romanian Deadlift (RDL)", sets: "3", reps: "10–12", weight: "Women's bar (35#) + 5s or 10s", cue: "Hinge at hips, soft knee bend, bar drags down your shins. Feel the hamstring stretch.", category: "Posterior Chain" },
-      { name: "Assisted or Banded Pull-Up", sets: "3", reps: "5–8", weight: "Resistance band assist — lightest band that makes reps hard", cue: "Initiate with the lats, not a shrug. Chin clears bar = full rep. Build to unassisted over time.", category: "Back / Biceps" },
-      { name: "Hip Thrust (Barbell or KB)", sets: "3", reps: "12–15", weight: "25# DB pair / 35# KB on hips", cue: "Shoulders on bench, drive hips to full extension. Squeeze at the top for 1 count. This builds the glutes.", category: "Glutes" },
-      { name: "Dead Bug", sets: "3", reps: "8 each side", weight: "Bodyweight", cue: "Lower back MUST stay flat against the floor. Slow and controlled. Breathe out on the reach.", category: "Core" },
+      { name: "Goblet Squat", sets: "3", reps: "10–12", weight: "25# KB → progress to 35#", cue: "Chest up, knees track over toes, full depth. Keep the KB close to your sternum.", category: "Legs", video: "BR4tlEE_A98" },
+      { name: "Romanian Deadlift (RDL)", sets: "3", reps: "10–12", weight: "Women's bar (35#) + 5s or 10s", cue: "Hinge at hips, soft knee bend, bar drags down your shins. Feel the hamstring stretch.", category: "Posterior Chain", video: "jEy_czb3RKA" },
+      { name: "Assisted or Banded Pull-Up", sets: "3", reps: "5–8", weight: "Resistance band assist — lightest band that makes reps hard", cue: "Initiate with the lats, not a shrug. Chin clears bar = full rep. Build to unassisted over time.", category: "Back / Biceps", video: "zgjVmJun4d4" },
+      { name: "Hip Thrust (Barbell or KB)", sets: "3", reps: "12–15", weight: "25# DB pair / 35# KB on hips", cue: "Shoulders on bench, drive hips to full extension. Squeeze at the top for 1 count. This builds the glutes.", category: "Glutes", video: "lBZZFJ6Z3Dg" },
+      { name: "Dead Bug", sets: "3", reps: "8 each side", weight: "Bodyweight", cue: "Lower back MUST stay flat against the floor. Slow and controlled. Breathe out on the reach.", category: "Core", video: "JrcoGEZn6L4" },
     ],
     bodyweight: [
-      { name: "Bodyweight Squat", sets: "3", reps: "15–20", weight: "Bodyweight — slow the descent to 3 counts", cue: "Chest up, knees track toes, squat as deep as you can. Tempo is the load here — make each rep take 5 seconds total.", category: "Legs" },
-      { name: "Single-Leg Romanian Deadlift", sets: "3", reps: "10 each side", weight: "Bodyweight — use a wall for balance if needed", cue: "Stand on one leg, hinge forward at the hip, opposite leg extends back. Feel the hamstring load on the standing leg. Control the movement.", category: "Posterior Chain" },
-      { name: "Inverted Row (under a table) or Doorframe Row", sets: "3", reps: "8–12", weight: "Bodyweight — lean back more to make it harder", cue: "Lie under a sturdy table, grip the edge, keep your body straight and pull your chest up to it. Or grip a doorframe at hip height, lean back, and row. This replaces the pull-up.", category: "Back / Biceps" },
-      { name: "Glute Bridge", sets: "3", reps: "15–20", weight: "Bodyweight — pause 2 sec at top", cue: "On your back, feet flat, drive hips up and squeeze hard at the top. Hold 2 seconds every rep. Progress by doing single-leg version.", category: "Glutes" },
-      { name: "Dead Bug", sets: "3", reps: "8 each side", weight: "Bodyweight", cue: "Lower back MUST stay flat against the floor. Slow and controlled. Breathe out on the reach.", category: "Core" },
+      { name: "Bodyweight Squat", sets: "3", reps: "15–20", weight: "Bodyweight — slow the descent to 3 counts", cue: "Chest up, knees track toes, squat as deep as you can. Tempo is the load here — make each rep take 5 seconds total.", category: "Legs", video: "BR4tlEE_A98" },
+      { name: "Single-Leg Romanian Deadlift", sets: "3", reps: "10 each side", weight: "Bodyweight — use a wall for balance if needed", cue: "Stand on one leg, hinge forward at the hip, opposite leg extends back. Feel the hamstring load on the standing leg. Control the movement.", category: "Posterior Chain", video: "jEy_czb3RKA" },
+      { name: "Inverted Row (under a table) or Doorframe Row", sets: "3", reps: "8–12", weight: "Bodyweight — lean back more to make it harder", cue: "Lie under a sturdy table, grip the edge, keep your body straight and pull your chest up to it. Or grip a doorframe at hip height, lean back, and row. This replaces the pull-up.", category: "Back / Biceps", video: "Fl0UMfdEzsE" },
+      { name: "Glute Bridge", sets: "3", reps: "15–20", weight: "Bodyweight — pause 2 sec at top", cue: "On your back, feet flat, drive hips up and squeeze hard at the top. Hold 2 seconds every rep. Progress by doing single-leg version.", category: "Glutes", video: "lBZZFJ6Z3Dg" },
+      { name: "Dead Bug", sets: "3", reps: "8 each side", weight: "Bodyweight", cue: "Lower back MUST stay flat against the floor. Slow and controlled. Breathe out on the reach.", category: "Core", video: "JrcoGEZn6L4" },
     ],
   },
   {
-    id: "B",
-    label: "Day B",
-    focus: "Upper Body Push + Core",
-    color: "#4a90d9",
-    gym: [
-      { name: "Dumbbell Bench Press", sets: "3", reps: "10–12", weight: "10# DBs → progress to 15# → 20#", cue: "Feet flat, slight arch. Lower slowly to chest level, press with control. Don't let shoulders flare forward.", category: "Chest / Shoulders" },
-      { name: "Dumbbell Row (each arm)", sets: "3", reps: "10–12 each", weight: "15# → 20# DBs", cue: "Brace on the bench. Pull elbow to hip, not ear. Squeeze at the top.", category: "Back" },
-      { name: "Dumbbell Shoulder Press", sets: "3", reps: "10–12", weight: "8# → 10# → 15# DBs", cue: "Seated or standing. Brace core. Press straight up, lower to 90°. Don't shrug.", category: "Shoulders" },
-      { name: "Ring or Inverted Row", sets: "3", reps: "10–12", weight: "Bodyweight — angle determines difficulty", cue: "Body straight like a plank. Pull chest to hands. Harder = more horizontal.", category: "Back / Biceps" },
-      { name: "Hollow Body Hold", sets: "3", reps: "20–30 sec", weight: "Bodyweight", cue: "Lower back pressed DOWN. Arms overhead or crossed. Legs low. Feel your abs working hard.", category: "Core" },
-    ],
+    id: "B", label: "Day B", focus: "Upper Body Push + Core", color: "#4a90d9",
     pushupNote: "Progression ladder: (1) Elevated hands on barbell at hip height — start here. (2) Elevated on bench height. (3) Knees on floor. (4) Full push-up. Move down one level when you can hit 3×12 with perfect form.",
+    gym: [
+      { name: "Dumbbell Bench Press", sets: "3", reps: "10–12", weight: "10# DBs → progress to 15# → 20#", cue: "Feet flat, slight arch. Lower slowly to chest level, press with control. Don't let shoulders flare forward.", category: "Chest / Shoulders", video: "xhEhjF5ozuY" },
+      { name: "Dumbbell Row (each arm)", sets: "3", reps: "10–12 each", weight: "15# → 20# DBs", cue: "Brace on the bench. Pull elbow to hip, not ear. Squeeze at the top.", category: "Back", video: "gfUg6qWohTk" },
+      { name: "Dumbbell Shoulder Press", sets: "3", reps: "10–12", weight: "8# → 10# → 15# DBs", cue: "Seated or standing. Brace core. Press straight up, lower to 90°. Don't shrug.", category: "Shoulders", video: "qEwKCR5JCog" },
+      { name: "Ring or Inverted Row", sets: "3", reps: "10–12", weight: "Bodyweight — angle determines difficulty", cue: "Body straight like a plank. Pull chest to hands. Harder = more horizontal.", category: "Back / Biceps", video: "Fl0UMfdEzsE" },
+      { name: "Hollow Body Hold", sets: "3", reps: "20–30 sec", weight: "Bodyweight", cue: "Lower back pressed DOWN. Arms overhead or crossed. Legs low. Feel your abs working hard.", category: "Core", video: "HAfUt2Cco74" },
+    ],
     bodyweight: [
-      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps (8–15)", weight: "See ladder below — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line — no sagging hips. Lower chest to the surface, press back up. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. Drop down a level anytime form breaks.", category: "Chest / Shoulders" },
-      { name: "Pike Push-Up", sets: "3", reps: "8–12", weight: "Bodyweight", cue: "Start in a downward-dog position, bend elbows and lower your head toward the floor. Press back up. This hits the shoulders hard — more vertical than a regular push-up.", category: "Shoulders" },
-      { name: "Doorframe Row or Table Row", sets: "3", reps: "10–12", weight: "Bodyweight", cue: "Grip a doorframe at chest height, lean back, pull yourself in. Or lie under a table and row up to it. Keep your body straight the whole time.", category: "Back" },
-      { name: "Tricep Dip (chair or floor)", sets: "3", reps: "10–15", weight: "Bodyweight", cue: "Hands on chair behind you, lower your body by bending the elbows, press back up. Keep your hips close to the chair. Feel the back of the arm working.", category: "Triceps" },
-      { name: "Hollow Body Hold", sets: "3", reps: "20–30 sec", weight: "Bodyweight", cue: "Lower back pressed DOWN. Arms overhead or crossed. Legs low. Feel your abs working hard.", category: "Core" },
+      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps (8–15)", weight: "See ladder below — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line — no sagging hips. Lower chest to the surface, press back up. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. Drop down a level anytime form breaks.", category: "Chest / Shoulders", video: "Rb_6Gy5kEdk" },
+      { name: "Pike Push-Up", sets: "3", reps: "8–12", weight: "Bodyweight", cue: "Start in a downward-dog position, bend elbows and lower your head toward the floor. Press back up. This hits the shoulders hard — more vertical than a regular push-up.", category: "Shoulders", video: "qEwKCR5JCog" },
+      { name: "Doorframe Row or Table Row", sets: "3", reps: "10–12", weight: "Bodyweight", cue: "Grip a doorframe at chest height, lean back, pull yourself in. Or lie under a table and row up to it. Keep your body straight the whole time.", category: "Back", video: "Fl0UMfdEzsE" },
+      { name: "Tricep Dip (chair or floor)", sets: "3", reps: "10–15", weight: "Bodyweight", cue: "Hands on chair behind you, lower your body by bending the elbows, press back up. Keep your hips close to the chair. Feel the back of the arm working.", category: "Triceps", video: "gfUg6qWohTk" },
+      { name: "Hollow Body Hold", sets: "3", reps: "20–30 sec", weight: "Bodyweight", cue: "Lower back pressed DOWN. Arms overhead or crossed. Legs low. Feel your abs working hard.", category: "Core", video: "HAfUt2Cco74" },
     ],
   },
   {
-    id: "C",
-    label: "Day C",
-    focus: "Full Body + Finisher",
-    color: "#3cb87a",
+    id: "C", label: "Day C", focus: "Full Body + Finisher", color: "#3cb87a",
     gym: [
-      { name: "Barbell Back Squat", sets: "3", reps: "8–10", weight: "Women's bar only (35#) or + 5s each side to start", cue: "This is the money lift. Bar on traps, brace core hard, squat to parallel or below. Your dad can spot.", category: "Legs / Full Body" },
-      { name: "Romanian Deadlift to Row Combo", sets: "3", reps: "10", weight: "15# DBs", cue: "RDL down, row at the bottom, stand back up. Two movements = more bang for your time.", category: "Posterior Chain / Back" },
-      { name: "Box Step-Up with DB", sets: "3", reps: "10 each leg", weight: "10–15# DBs / use 20\" box", cue: "Drive through your heel. Don't push off the back leg. Full hip extension at the top.", category: "Legs / Glutes" },
-      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps (aim 8–12)", weight: "See ladder — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. Move down one level when you hit 3×12 with perfect form.", category: "Chest / Triceps" },
-      { name: "Assault Bike Finisher", sets: "—", reps: "3 rounds: 20 sec hard / 40 sec easy", weight: "Bodyweight", cue: "All-out for 20 seconds, recover on the 40. This is the stomach finisher — boosts metabolic conditioning.", category: "Conditioning" },
+      { name: "Barbell Back Squat", sets: "3", reps: "8–10", weight: "Women's bar only (35#) or + 5s each side to start", cue: "This is the money lift. Bar on traps, brace core hard, squat to parallel or below. Your dad can spot.", category: "Legs / Full Body", video: "8PMjqgR8Wa8" },
+      { name: "Romanian Deadlift to Row Combo", sets: "3", reps: "10", weight: "15# DBs", cue: "RDL down, row at the bottom, stand back up. Two movements = more bang for your time.", category: "Posterior Chain / Back", video: "jEy_czb3RKA" },
+      { name: "Box Step-Up with DB", sets: "3", reps: "10 each leg", weight: "10–15# DBs / use 20\" box", cue: "Drive through your heel. Don't push off the back leg. Full hip extension at the top.", category: "Legs / Glutes", video: "DxUNi119Qzs" },
+      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps (aim 8–12)", weight: "See ladder — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. Move down one level when you hit 3×12 with perfect form.", category: "Chest / Triceps", video: "Rb_6Gy5kEdk" },
+      { name: "Assault Bike Finisher", sets: "—", reps: "3 rounds: 20 sec hard / 40 sec easy", weight: "Bodyweight", cue: "All-out for 20 seconds, recover on the 40. This is the stomach finisher — boosts metabolic conditioning.", category: "Conditioning", video: null },
     ],
     bodyweight: [
-      { name: "Jump Squat or Squat Pulse", sets: "3", reps: "15 jumps or 20 pulses", weight: "Bodyweight", cue: "Squat down, explode up into a jump, land softly. If low impact needed, stay in the squat and pulse at the bottom for 20 reps. Both options build serious leg endurance.", category: "Legs / Full Body" },
-      { name: "Reverse Lunge", sets: "3", reps: "10 each leg", weight: "Bodyweight — slow and controlled", cue: "Step back, lower your back knee toward the floor, drive through the front heel to stand. Easier on the knees than forward lunge. Hits the glutes and quads.", category: "Legs / Glutes" },
-      { name: "Plank to Downward Dog", sets: "3", reps: "10 reps", weight: "Bodyweight", cue: "Start in a plank, push hips up to a downward dog position, then return. This flows between shoulder stability and hamstring stretch. Keep it controlled.", category: "Full Body" },
-      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps", weight: "See ladder — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. This is the finisher — push to your limit each set.", category: "Chest / Triceps" },
-      { name: "Burpee (modified or full)", sets: "3", reps: "8–10", weight: "Bodyweight", cue: "Squat down, step or jump feet back to plank, do a push-up, step or jump feet in, stand up. This is the cardio finisher replacement for the assault bike. Go at your own pace — form over speed.", category: "Conditioning" },
+      { name: "Jump Squat or Squat Pulse", sets: "3", reps: "15 jumps or 20 pulses", weight: "Bodyweight", cue: "Squat down, explode up into a jump, land softly. If low impact needed, stay in the squat and pulse at the bottom for 20 reps. Both options build serious leg endurance.", category: "Legs / Full Body", video: "BR4tlEE_A98" },
+      { name: "Reverse Lunge", sets: "3", reps: "10 each leg", weight: "Bodyweight — slow and controlled", cue: "Step back, lower your back knee toward the floor, drive through the front heel to stand. Easier on the knees than forward lunge. Hits the glutes and quads.", category: "Legs / Glutes", video: "DxUNi119Qzs" },
+      { name: "Plank to Downward Dog", sets: "3", reps: "10 reps", weight: "Bodyweight", cue: "Start in a plank, push hips up to a downward dog position, then return. This flows between shoulder stability and hamstring stretch. Keep it controlled.", category: "Full Body", video: null },
+      { name: "Push-Up Progression", sets: "3", reps: "Max quality reps", weight: "See ladder — start where you can get 8+ clean reps", cue: "Hands slightly wider than shoulders. Body in a straight line. PROGRESSION LADDER: (1) Hands on barbell at hip height — start here. (2) Hands on bench height. (3) Knees on floor. (4) Full push-up. This is the finisher — push to your limit each set.", category: "Chest / Triceps", video: "Rb_6Gy5kEdk" },
+      { name: "Burpee (modified or full)", sets: "3", reps: "8–10", weight: "Bodyweight", cue: "Squat down, step or jump feet back to plank, do a push-up, step or jump feet in, stand up. This is the cardio finisher replacement for the assault bike. Go at your own pace — form over speed.", category: "Conditioning", video: null },
     ],
   },
 ];
@@ -73,14 +64,14 @@ const RECOVERY = [
 ];
 
 const STRETCHES = [
-  { name: "Kneeling Hip Flexor Stretch", hold: "45–60 sec each side", target: "Hip Flexors", cue: "Kneel on one knee, step the other foot forward. Drive your hips forward gently until you feel the front of the back hip. Keep your torso tall — don't lean forward. Most important stretch if you sit a lot." },
-  { name: "Standing Hamstring Stretch", hold: "45–60 sec each side", target: "Hamstrings", cue: "Stand and place one heel on a surface at hip height. Keep that leg straight, hinge slightly forward from the hip — not the lower back. Feel the pull behind your thigh. Switch sides." },
-  { name: "Pigeon Pose (or Figure-4 on back)", hold: "60–90 sec each side", target: "Glutes / Hip Rotators", cue: "On the floor: cross one ankle over the opposite knee and gently press the knee away. Or full pigeon on the ground if comfortable. Targets the deep glute — especially important after hip thrusts and squats." },
-  { name: "Lying Glute Stretch", hold: "45 sec each side", target: "Glutes / Lower Back", cue: "On your back, pull one knee across your body toward the opposite shoulder. Keep your shoulder blades flat on the floor. Breathe into it." },
-  { name: "Doorway Chest Stretch", hold: "45 sec each side", target: "Chest / Front Shoulder", cue: "Place forearm on a doorframe at 90°, step through gently. Feel the stretch across your chest and front shoulder. Counters the bench press and push-up work." },
-  { name: "Overhead Tricep + Lat Stretch", hold: "30–45 sec each side", target: "Lats / Triceps", cue: "Raise one arm, bend it behind your head, use the other hand to gently press the elbow down. Lean slightly to the opposite side to hit the lat. Long stretch down the side of your torso." },
-  { name: "Cat-Cow", hold: "10 slow reps", target: "Thoracic Spine / Core", cue: "On hands and knees. Inhale — drop your belly, lift your chest and tailbone (cow). Exhale — round your entire spine toward the ceiling (cat). Move slowly with your breath." },
-  { name: "Child's Pose", hold: "60–90 sec", target: "Lower Back / Hips / Shoulders", cue: "Kneel and sit back toward your heels, arms stretched forward on the floor. Let gravity do the work. Breathe deep into your lower back. Cool-down finisher — just relax into it." },
+  { name: "Kneeling Hip Flexor Stretch", hold: "45–60 sec each side", target: "Hip Flexors", cue: "Kneel on one knee, step the other foot forward. Drive your hips forward gently until you feel the front of the back hip. Keep your torso tall — don't lean forward. Most important stretch if you sit a lot.", video: "Q4Ko275cluo" },
+  { name: "Standing Hamstring Stretch", hold: "45–60 sec each side", target: "Hamstrings", cue: "Stand and place one heel on a surface at hip height. Keep that leg straight, hinge slightly forward from the hip — not the lower back. Feel the pull behind your thigh. Switch sides.", video: "jEy_czb3RKA" },
+  { name: "Pigeon Pose (or Figure-4 on back)", hold: "60–90 sec each side", target: "Glutes / Hip Rotators", cue: "On the floor: cross one ankle over the opposite knee and gently press the knee away. Or full pigeon on the ground if comfortable. Targets the deep glute — especially important after hip thrusts and squats.", video: "46phRH_09yM" },
+  { name: "Lying Glute Stretch", hold: "45 sec each side", target: "Glutes / Lower Back", cue: "On your back, pull one knee across your body toward the opposite shoulder. Keep your shoulder blades flat on the floor. Breathe into it.", video: "46phRH_09yM" },
+  { name: "Doorway Chest Stretch", hold: "45 sec each side", target: "Chest / Front Shoulder", cue: "Place forearm on a doorframe at 90°, step through gently. Feel the stretch across your chest and front shoulder. Counters the bench press and push-up work.", video: null },
+  { name: "Overhead Tricep + Lat Stretch", hold: "30–45 sec each side", target: "Lats / Triceps", cue: "Raise one arm, bend it behind your head, use the other hand to gently press the elbow down. Lean slightly to the opposite side to hit the lat. Long stretch down the side of your torso.", video: null },
+  { name: "Cat-Cow", hold: "10 slow reps", target: "Thoracic Spine / Core", cue: "On hands and knees. Inhale — drop your belly, lift your chest and tailbone (cow). Exhale — round your entire spine toward the ceiling (cat). Move slowly with your breath.", video: "Fa4ZMS5M7xA" },
+  { name: "Child's Pose", hold: "60–90 sec", target: "Lower Back / Hips / Shoulders", cue: "Kneel and sit back toward your heels, arms stretched forward on the floor. Let gravity do the work. Breathe deep into your lower back. Cool-down finisher — just relax into it.", video: null },
 ];
 
 const SCHEDULE = [
@@ -101,6 +92,36 @@ const NOTES = [
   { title: "Phase 2 (Weeks 7–12)", body: "Add barbell RDL, increase squat load meaningfully, introduce KB swings (35# → 53#), consider adding a 4th day. Pull-ups should be unassisted by then." },
 ];
 
+function VideoEmbed({ videoId, color }) {
+  const [open, setOpen] = useState(false);
+  if (!videoId) return null;
+  return (
+    <div style={{ marginTop: 10 }}>
+      <button onClick={(e) => { e.stopPropagation(); setOpen(!open); }} style={{
+        background: "transparent", border: `1px solid ${color}50`, borderRadius: 6,
+        color: color, fontSize: 11, letterSpacing: "0.08em", padding: "5px 12px",
+        cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
+      }}>
+        <span style={{ fontSize: 13 }}>{open ? "▼" : "▶"}</span>
+        {open ? "Hide Video" : "Watch Tutorial"}
+      </button>
+      {open && (
+        <div style={{ marginTop: 10, borderRadius: 10, overflow: "hidden", aspectRatio: "16/9", background: "#000" }}>
+          <iframe
+            width="100%" height="100%"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`}
+            title="Exercise tutorial"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{ display: "block" }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function FitnessProgram() {
   const [activeDay, setActiveDay] = useState("A");
   const [expandedExercise, setExpandedExercise] = useState(null);
@@ -111,7 +132,7 @@ export default function FitnessProgram() {
   const exercises = mode === "gym" ? currentDay.gym : currentDay.bodyweight;
 
   return (
-    <div style={{ fontFamily: "'Georgia', 'Times New Roman', serif", background: "#0f0f0f", minHeight: "100vh", color: "#e8e0d4", padding: "0" }}>
+    <div style={{ fontFamily: "'Georgia', 'Times New Roman', serif", background: "#0f0f0f", minHeight: "100vh", color: "#e8e0d4" }}>
 
       <div style={{ background: "linear-gradient(135deg, #1a1108 0%, #0f0f0f 100%)", borderBottom: "1px solid #2a2418", padding: "32px 24px 24px" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
@@ -143,7 +164,7 @@ export default function FitnessProgram() {
               background: "none", border: "none",
               borderBottom: tab === t.id ? "2px solid #e8673a" : "2px solid transparent",
               color: tab === t.id ? "#e8e0d4" : "#5a5040",
-              padding: "14px 16px", fontSize: 13, cursor: "pointer", letterSpacing: "0.05em", fontFamily: "Georgia, serif", transition: "color 0.2s",
+              padding: "14px 16px", fontSize: 13, cursor: "pointer", letterSpacing: "0.05em", fontFamily: "Georgia, serif",
             }}>{t.label}</button>
           ))}
         </div>
@@ -159,11 +180,10 @@ export default function FitnessProgram() {
                   flex: 1, padding: "14px 8px",
                   background: activeDay === d.id ? d.color : "rgba(255,255,255,0.04)",
                   border: `1px solid ${activeDay === d.id ? d.color : "#2a2418"}`,
-                  borderRadius: 10, color: activeDay === d.id ? "#fff" : "#6a5d50",
-                  cursor: "pointer", textAlign: "center", transition: "all 0.2s",
+                  borderRadius: 10, color: activeDay === d.id ? "#fff" : "#6a5d50", cursor: "pointer", textAlign: "center",
                 }}>
                   <div style={{ fontSize: 16, fontWeight: 700, fontFamily: "Georgia, serif", marginBottom: 2 }}>{d.label}</div>
-                  <div style={{ fontSize: 10, letterSpacing: "0.05em", opacity: 0.8 }}>{d.focus}</div>
+                  <div style={{ fontSize: 10, opacity: 0.8 }}>{d.focus}</div>
                 </button>
               ))}
             </div>
@@ -172,14 +192,12 @@ export default function FitnessProgram() {
               <button onClick={() => { setMode("gym"); setExpandedExercise(null); }} style={{
                 flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer",
                 background: mode === "gym" ? currentDay.color : "transparent",
-                color: mode === "gym" ? "#fff" : "#5a5040",
-                fontSize: 13, fontFamily: "Georgia, serif", letterSpacing: "0.05em", transition: "all 0.2s",
+                color: mode === "gym" ? "#fff" : "#5a5040", fontSize: 13, fontFamily: "Georgia, serif",
               }}>🏋️ Gym Access</button>
               <button onClick={() => { setMode("bodyweight"); setExpandedExercise(null); }} style={{
                 flex: 1, padding: "10px 0", borderRadius: 8, border: "none", cursor: "pointer",
                 background: mode === "bodyweight" ? currentDay.color : "transparent",
-                color: mode === "bodyweight" ? "#fff" : "#5a5040",
-                fontSize: 13, fontFamily: "Georgia, serif", letterSpacing: "0.05em", transition: "all 0.2s",
+                color: mode === "bodyweight" ? "#fff" : "#5a5040", fontSize: 13, fontFamily: "Georgia, serif",
               }}>🏠 No Equipment</button>
             </div>
 
@@ -188,20 +206,20 @@ export default function FitnessProgram() {
                 <div key={i} onClick={() => setExpandedExercise(expandedExercise === i ? null : i)} style={{
                   background: "rgba(255,255,255,0.03)",
                   border: `1px solid ${expandedExercise === i ? currentDay.color + "60" : "#1e1a14"}`,
-                  borderRadius: 12, padding: "16px 18px", cursor: "pointer", transition: "all 0.2s",
+                  borderRadius: 12, padding: "16px 18px", cursor: "pointer",
                 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
                         <span style={{ fontSize: 9, letterSpacing: "0.12em", color: currentDay.color, textTransform: "uppercase", background: currentDay.color + "20", padding: "2px 7px", borderRadius: 4 }}>{ex.category}</span>
                       </div>
-                      <div style={{ fontSize: 16, color: "#e8e0d4", fontWeight: 400, letterSpacing: "-0.01em", marginBottom: 6 }}>{ex.name}</div>
+                      <div style={{ fontSize: 16, color: "#e8e0d4", marginBottom: 6 }}>{ex.name}</div>
                       <div style={{ display: "flex", gap: 16, fontSize: 12, color: "#8a7d6a" }}>
                         <span><span style={{ color: currentDay.color }}>{ex.sets}</span> sets</span>
                         <span><span style={{ color: currentDay.color }}>{ex.reps}</span> reps</span>
                       </div>
                     </div>
-                    <div style={{ color: expandedExercise === i ? currentDay.color : "#3a3228", fontSize: 18, marginLeft: 12, flexShrink: 0, transition: "transform 0.2s, color 0.2s", transform: expandedExercise === i ? "rotate(180deg)" : "none" }}>▾</div>
+                    <div style={{ color: expandedExercise === i ? currentDay.color : "#3a3228", fontSize: 18, marginLeft: 12, flexShrink: 0, transform: expandedExercise === i ? "rotate(180deg)" : "none" }}>▾</div>
                   </div>
                   {expandedExercise === i && (
                     <div style={{ marginTop: 14, paddingTop: 14, borderTop: `1px solid ${currentDay.color}30` }}>
@@ -213,6 +231,7 @@ export default function FitnessProgram() {
                         <div style={{ fontSize: 10, letterSpacing: "0.12em", color: currentDay.color, textTransform: "uppercase", marginBottom: 4 }}>Coaching Cue</div>
                         <div style={{ fontSize: 13, color: "#c8b89a", lineHeight: 1.6, fontStyle: "italic" }}>{ex.cue}</div>
                       </div>
+                      <VideoEmbed videoId={ex.video} color={currentDay.color} />
                     </div>
                   )}
                 </div>
@@ -269,7 +288,8 @@ export default function FitnessProgram() {
                     <span style={{ fontSize: 11, color: "#5a5040" }}>{s.hold}</span>
                   </div>
                   <div style={{ fontSize: 15, color: "#e8e0d4", marginBottom: 8 }}>{s.name}</div>
-                  <div style={{ fontSize: 12, color: "#8a7d6a", lineHeight: 1.65, fontStyle: "italic", borderLeft: "2px solid rgba(200,122,74,0.3)", paddingLeft: 12 }}>{s.cue}</div>
+                  <div style={{ fontSize: 12, color: "#8a7d6a", lineHeight: 1.65, fontStyle: "italic", borderLeft: "2px solid rgba(200,122,74,0.3)", paddingLeft: 12, marginBottom: 4 }}>{s.cue}</div>
+                  <VideoEmbed videoId={s.video} color="#c87a4a" />
                 </div>
               ))}
             </div>
